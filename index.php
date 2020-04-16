@@ -1,66 +1,10 @@
 <?php
-define('API_KEY','991611342:AAHRpH1sINiKiwRLOb-HAQlaHlkaGFVOicQ');
+define('API_KEY','1297794420:AAGqPUEDc0rkogT36ocpaYdI4MDCQKYdOkE');
 $admin = "621617473";
 $kanal = "-1001421683503";
 
 
-function joinchat($from){
-     global $message_id;
-     $gett = bot('getChatMember',[
-  'chat_id' =>"-1001421683503",
-  'user_id' => $from,
-  ]);
-  $stat = $gett->result->status;
-$tit = $gett->result->title;
-$rets = bot("getChatMember",[
-         "chat_id"=>"-1001257928378",
-         "user_id"=>$from,
-         ]);
-$stats = $rets->result->status;
-$tite = $rets->result->title;
-$retus = bot("getChatMember",[
-         "chat_id"=>"-1001413962704",
-         "user_id"=>$from,
-         ]);
-$status = $retus->result->status;
-if((($stat=="creator" or $stat=="administrator" or $stat=="member") and ($stats=="creator" or $stats=="administrator" or $stats=="member") and ($status=="creator" or $status=="administrator" or $status=="member"))){
-      return true;
-         }else{
-           bot('deleteMessage',[
-'chat_id'=>$from,
-'message_id'=>$mid-2,
-]);
-bot('sendphoto',[
-'photo'=>"https://t.me/hacker_progi/53643",
-         "chat_id"=>$from,
-         "caption"=>"<b>🤖: Men orqali ismingiz ajoyib rasmga joylashingiz mumkin
 
-Foydalanishdan avval quyidagi kanallarga obuna bo'ling aks holda bot ishlamaydi❗️
-
-Agar kanallardan chiqib ketsangiz bot ishlamay qoladi shuning uchun kanalni tark etmang❗</b>",
-         'parse_mode'=>'html',
-         "reply_to_message_id"=>$mid,
-"reply_markup"=>json_encode([
-"inline_keyboard"=>[
-[["text"=>"➕Azo bo'lish","url"=>"https://t.me/joinchat/AAAAAFS9Ky9zXG01PJqyew"]],
-[['text'=>"➕Azo bo'lish ",'url'=>"https://t.me/joinchat/AAAAAEr6droIZqUdZ8K_Gg"]],
-[["text"=>"➕ A‘zo bo‘lish","url"=>"https://t.me/joinchat/AAAAAFRHW9CANh8_OaVK1g"]],
-[["text"=>"✅ Tasdiqlash","callback_data"=>"join"]],
-]
-]),
-]);  
- 
-return false;
-}
-}
-function ACL($callbackQueryId, $text = null, $showAlert = false)
-{
-return bot('answerCallbackQuery', [
-'callback_query_id' => $callbackQueryId,
-'text' => $text,
-'show_alert' => $showAlert,
-]);
-}
 
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -201,7 +145,7 @@ bot ('SendMessage', [
 }
 
 if($text=="/start"){
-	if(joinchat($uid)=="true"){
+	
 bot('sendphoto',[
 'photo'=>"https://t.me/hacker_progi/53643",
     'chat_id'=>$cid,
@@ -212,7 +156,7 @@ Buning uchun pastdagi bolimlarni birini tanlang*👇",
     'reply_markup'=>$key,
     ]);
 }
-}
+
 
 if($text== $otex){
 unlink("data/$cid/command.txt");
@@ -223,7 +167,7 @@ bot('sendMessage', [
 ]);
 }
 if($text == "🌅Rasm tayyorlash🖌"){
-if(joinchat($uid)=="true"){
+
 bot('sendmessage', [
 'chat_id' => $cid,
 'text'=>"*Ismingizni  rasmga tushirish uchun kerakli bolimni tanlang*",
@@ -232,7 +176,7 @@ bot('sendmessage', [
 'reply_markup'=>$keys,
 ]);
 }
-}
+
 if($text == "Statistika📊"){
 if(joinchat($uid)=="true"){
 $vaq = date("⏰H:i  📅d_m_Y",strtotime("2 hour"));
@@ -246,7 +190,7 @@ $us = substr_count($baza,"\n");
      }} 
 
 if($text == "👫Sevishganlar👫"){
-if(joinchat($uid)=="true"){
+
 file_put_contents("data/$cid/command.txt","ramazon");
 bot('sendmessage', [
 'chat_id' => $cid,
@@ -256,7 +200,7 @@ bot('sendmessage', [
 'reply_markup'=>$otmen,
 ]);
 }
-}
+
 if($command == 'ramazon'){
 if($text=="💫 Ortga qaytish"){
 }else{
